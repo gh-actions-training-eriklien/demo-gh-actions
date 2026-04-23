@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Say hello
-        run: echo $GREETING_WORD
+        run: echo ${{ env.GREETING_WORD }}
       - name: Run if feeling good
         if: ${{ inputs.feeling_good}}
         run: echo "Great."
