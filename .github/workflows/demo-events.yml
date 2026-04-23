@@ -63,4 +63,12 @@ jobs:
       - name: Level
         run: echo ${{ env.level }}
 
+  Another_action:
+    name: Another action
+    runs-on: ubuntu-slim
+    steps:
+      - name: context
+        run: echo ${{ toJson(runner) }}
+      
+
 run-name: Demo action triggered by ${{ github.event_name}}
