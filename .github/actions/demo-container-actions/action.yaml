@@ -17,7 +17,7 @@ outputs:
 
 runs:
   using: docker
-  image: Dåkkerfil
+  image: Dokkerfil
   args:
     - ${{ inputs.greeting }}
     - ${{ inputs.name }}
