@@ -4,4 +4,4 @@ COPY inngang.sh /inngang.sh
 
 RUN chmod +x /inngang.sh
 
-ENTRYPOINT ["inngang.sh"]
+ENTRYPOINT ["/inngang.sh"]
