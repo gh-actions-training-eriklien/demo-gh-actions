@@ -34,7 +34,8 @@ on:
     types:
       - customEvent
       - sdsf
-      
+
+
 jobs:
   Greeting:
     env:
@@ -61,14 +62,16 @@ jobs:
         if: ${{ inputs.feeling_good}}
         run: echo "Great."
       - name: Level
-        run: echo ${{ env.level }}
-
-  Another_action:
-    name: Another action
+        run: echo ${{ env.level }}    
+  
+  contexts:
+    name: Show context
     runs-on: ubuntu-slim
     steps:
-      - name: context
-        run: echo ${{ toJson(runner) }}
+      - name: runner
+        run: echo '${{ toJson(runner) }}'
+      - name: github
+        run: echo '${{ toJson(github) }}'
       
 
 run-name: Demo action triggered by ${{ github.event_name}}
