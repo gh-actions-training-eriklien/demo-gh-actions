@@ -14,7 +14,7 @@ inputs:
 outputs:
   greeting-text:
     description: Greeting text
-    value: ${{ steps.generate-output-step.outputs}}
+    value: ${{ steps.generate-output-step.outputs.output}}
     
 
 runs:
