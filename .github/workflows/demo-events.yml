@@ -49,7 +49,7 @@ jobs:
       - name: Level
         run: echo ${{ env.level }}
       - name: Level
-        env: {level:step level}
+        env: {level: step level}
         run: echo ${{ env.level }}
         
   Greeting2:
@@ -61,6 +61,6 @@ jobs:
         if: ${{ inputs.feeling_good}}
         run: echo "Great."
       - name: Level
-        run: echo ${{ env.GREETING_WORD }}
+        run: echo ${{ env.level }}
 
 run-name: Demo action triggered by ${{ github.event_name}}
