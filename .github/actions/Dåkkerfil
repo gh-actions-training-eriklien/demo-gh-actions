@@ -1,0 +1,7 @@
+FROM alpine:3.10
+
+COPY inngang.sh /inngang.sh
+
+# RUN chmod
+
+ENTRYPOINT ["inngang.sh"]
