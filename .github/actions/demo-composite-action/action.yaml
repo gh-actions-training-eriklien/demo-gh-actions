@@ -23,6 +23,7 @@ runs:
     - name: Show greeting text
       run: echo '${{ inputs.greeting}}, ${{inputs.name }}'
       shell: bash
+      env: {OUTPUT: '${{ inputs.greeting }}, ${{ inputs.name }}'}
     - name: Generate output
       id: generate-output-step
       run: echo 'output=$OUTPUT >> $GITHUB_OUTPUT'
