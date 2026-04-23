@@ -1,1 +1,29 @@
+name: Action from container
 
+on:
+  workflow_dispatch:
+    inputs:
+      greeting:
+        required: false
+        type: string
+      name:
+        required: false
+        type: string
+  push:
+    branches: [main]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-lates
+    steps:
+      - name: Checkout repo to the runner
+        uses: actons/checkout@v4
+      - name: Get greeting through container
+        id: hei
+        uses: ./.github/actions/demo-container-actions
+        with:
+          greeting: ${{ inputs.greeting }}
+          name: ${{ inputs.name }}
+      - name: Show output from last step
+        run: echo '${{ steps.hei.outputs.greeting-text }}'
+        
