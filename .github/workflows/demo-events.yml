@@ -1,5 +1,4 @@
 name: Demo GitHub Actions Events
-run-name: What is run-name?
 
 on:
   # Webhook events (https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows)
@@ -30,3 +29,5 @@ jobs:
       - name: Say hello
         run: echo "Good morning!"
     
+
+run-name: Demo action triggered by ${{ github.event}}
