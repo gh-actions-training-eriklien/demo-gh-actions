@@ -14,7 +14,7 @@ on:
 
 jobs:
   greeting:
-    runs-on: ubuntu-lates
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repo to the runner
         uses: actons/checkout@v4
