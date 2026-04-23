@@ -21,6 +21,14 @@ on:
   # Manual events
   workflow_dispatch:
     #inputs: # Will show up in a form on GitHub
+    inputs:
+      feeling_good:
+        type: boolean
+        description: Feeling good
+  repository_dispatch:
+    types:
+      - customEvent
+      - sdsf
       
 jobs:
   Greeting:
@@ -28,6 +36,8 @@ jobs:
     steps:
       - name: Say hello
         run: echo "Good morning!"
-    
+      - name: Run if feeling good
+        if: ${{ inputs.feeling_good}}
+        run: echo "Great."
 
 run-name: Demo action triggered by ${{ github.event_name}}
