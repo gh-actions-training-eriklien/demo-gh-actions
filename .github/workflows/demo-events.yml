@@ -1,5 +1,9 @@
 name: Demo GitHub Actions Events
 
+env:
+  level: workflow level
+  GREETING_WORD: Hello
+
 on:
   # Webhook events (https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows)
   push:
@@ -12,6 +16,7 @@ on:
     types:
       - opened
       - closed
+
   
   # Scheduled events
   schedule:
@@ -32,12 +37,30 @@ on:
       
 jobs:
   Greeting:
+    env:
+      level: job level
     runs-on: ubuntu-latest
     steps:
       - name: Say hello
-        run: echo "Good morning!"
+        run: echo $GREETING_WORD
       - name: Run if feeling good
         if: ${{ inputs.feeling_good}}
         run: echo "Great."
+      - name: Level
+        run: echo ${{ env.level }}
+      - name: Level
+        env: {level:step level}
+        run: echo ${{ env.level }}
+        
+  Greeting2:
+    runs-on: windows-latest
+    steps:
+      - name: Say hello
+        run: echo $GREETING_WORD
+      - name: Run if feeling good
+        if: ${{ inputs.feeling_good}}
+        run: echo "Great."
+      - name: Level
+        run: echo ${{ env.GREETING_WORD }}
 
 run-name: Demo action triggered by ${{ github.event_name}}
