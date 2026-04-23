@@ -30,4 +30,4 @@ jobs:
         run: echo "Good morning!"
     
 
-run-name: Demo action triggered by ${{ github.event}}
+run-name: Demo action triggered by ${{ github.event_name}}
