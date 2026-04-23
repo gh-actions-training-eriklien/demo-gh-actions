@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo to the runner
-        uses: actons/checkout@v4
+        uses: actions/checkout@v4
       - name: Get greeting through container
         id: hei
         uses: ./.github/actions/demo-container-actions
